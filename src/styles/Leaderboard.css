@@ -1,0 +1,59 @@
+body {
+  background-color: #00021f;
+}
+
+.leaderboard {
+  margin-left: 30%;
+  width: 60%;
+  color: white;
+}
+
+.first-three {
+  margin-top: 50px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.silver {
+  width: 333px;
+  height: 200px;
+  background-color: gray;
+}
+
+.gold {
+  width: 333px;
+  height: 230px;
+  background-color: yellow;
+}
+
+.bronze {
+  width: 333px;
+  height: 170px;
+  background-color: brown;
+}
+
+.sections {
+  background-color: #000003;
+  font-size: 10px;
+  display: flex;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.sections h1 {
+  width: 250px;
+  color: #bc7c19;
+}
+
+.student {
+  background-color: #22222e;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.student h3 {
+  width: 250px;
+  text-align: center;
+}

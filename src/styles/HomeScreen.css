@@ -1,9 +1,9 @@
 /* Navigation.css */
-body{
+body {
   background-color: #00021f;
 }
 
-.HomeScreen{
+.HomeScreen {
   display: flex;
   justify-content: space-between;
 }
@@ -20,9 +20,26 @@ body{
   width: 200px;
   color: #fff;
   padding: 20px;
+  border-right: 0.5px solid black;
 }
 .customText {
   color: "white";
+}
+.logoutButton {
+  width: 100px;
+  padding-top: 5px;
+  border: 0.5px solid black;
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 10px;
+  letter-spacing: 2px;
+  font-size: 14px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .logo img {
   width: 30%;
@@ -31,8 +48,11 @@ body{
 
 .profile {
   margin-top: 20px;
+  position: absolute;
   display: flex;
   align-items: center;
+  align-self: flex-end;
+  bottom: 60px;
 }
 
 .profile img {
@@ -42,11 +62,14 @@ body{
   margin-right: 10px;
 }
 .badges-container {
-  display: flex;
+  /* display: flex; */
 }
 
 .badges {
+  margin-left: 8px;
   margin-top: 20px;
+
+  display: flex;
 }
 
 .badges img {
@@ -62,12 +85,8 @@ body{
 }
 
 .navigation-items li {
-  padding: 10px 0;
+  padding: 10px 10px;
   cursor: pointer;
-}
-
-.navigation-items li:hover {
-  background-color: #555;
 }
 
 .sidebar {
@@ -76,6 +95,7 @@ body{
   background-color: #22222e;
   color: #fff;
   overflow-x: hidden;
+  justify-content: space-between;
   transition: width 0.3s ease;
 }
 

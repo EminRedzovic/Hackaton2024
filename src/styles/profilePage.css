@@ -1,0 +1,36 @@
+.profile1 {
+  width: 650px;
+  margin: auto;
+  background-color: black;
+  height: 650px;
+  margin-top: 10%;
+  border-radius: 20px;
+}
+
+.profile1 .linija {
+  height: 2px;
+  background-color: white;
+}
+
+.image-and-name {
+  display: flex;
+}
+
+.image-and-name img {
+  margin-top: -80px;
+  margin-left: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.image-and-name h1 {
+  color: white;
+  margin-left: 10px;
+}
+
+.about-me {
+  color: white;
+  margin-top: -10px;
+  padding: 0px 10px 10px 10px;
+}
