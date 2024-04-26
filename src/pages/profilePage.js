@@ -11,6 +11,8 @@ const ProfilePage = () => {
           <img src={profile} alt="asdasd" />
           <h1>Daris Mavric</h1>
         </div>
+        <h2>About me</h2>
+        <div className="linija"></div>
         <div className="about-me">
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -19,6 +21,15 @@ const ProfilePage = () => {
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic
           </p>
+        </div>
+        <div className="badges">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </div>
       </div>
     </div>

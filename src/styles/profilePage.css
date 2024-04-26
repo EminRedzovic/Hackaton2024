@@ -4,6 +4,12 @@
   background-color: black;
   height: 650px;
   margin-top: 10%;
+  border-radius: 20px;
+}
+
+.profile1 .linija {
+  height: 2px;
+  background-color: white;
 }
 
 .image-and-name {
@@ -25,5 +31,6 @@
 
 .about-me {
   color: white;
-  padding: 10px;
+  margin-top: -10px;
+  padding: 0px 10px 10px 10px;
 }
