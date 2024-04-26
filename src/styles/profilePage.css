@@ -1,10 +1,11 @@
 .profile1 {
-  width: 650px;
+  max-width: 700px;
   margin: auto;
-  background-color: black;
-  height: 650px;
+  height: 100% !important;
+  background-color: #22222e;
   margin-top: 10%;
   border-radius: 20px;
+  padding: 10px;
 }
 
 .profile1 .linija {
@@ -12,8 +13,25 @@
   background-color: white;
 }
 
+.profile1 h2 {
+  margin-top: 20px;
+  color: white;
+}
+
+.about-me-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-me-section p {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+}
+
 .image-and-name {
   display: flex;
+  color: white;
 }
 
 .image-and-name img {
@@ -31,6 +49,42 @@
 
 .about-me {
   color: white;
-  margin-top: -10px;
-  padding: 0px 10px 10px 10px;
+}
+
+.profile1 .other {
+  margin-top: 20px;
+  color: white;
+}
+
+.profile1 .other ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.profile1 .other ul li {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.profile1 .other ul li:hover {
+  border-bottom: 1px solid white;
+}
+
+.profile1 .badges {
+  height: 100%;
+  width: 700px;
+}
+
+.profile1 .badges ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.profile1 .badges ul li {
+  height: 200px;
+  width: 200px;
+  text-align: center;
+  color: white;
 }
