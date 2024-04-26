@@ -1,0 +1,21 @@
+.card {
+  background: #22222e;
+  color: white;
+}
+
+.card .title {
+  display: block; /* Po default-u prikazujemo naslov */
+}
+
+.card .description {
+  display: none; /* Po default-u ne prikazujemo opis kursa */
+}
+
+.card:hover .title {
+  display: none; /* Kada hoverujemo karticu, sakrijemo naslov */
+}
+
+.card:hover .description {
+  display: block;
+  
+}

@@ -1,4 +1,12 @@
 /* Navigation.css */
+body{
+  background-color: #00021f;
+}
+
+.HomeScreen{
+  display: flex;
+  justify-content: space-between;
+}
 
 .sidebar {
   position: fixed;
