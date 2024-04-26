@@ -37,10 +37,12 @@ const AddCourse = () => {
     },
 
     validationSchema: Yup.object().shape({
-      title: Yup.string().required("required"),
+      title: Yup.string()
+        .required("required")
+        .max(15, "max title lenght is 15"),
       description: Yup.string()
         .required("required")
-        .max(100, "max description lenght is 200"),
+        .max(70, "max description lenght is 70"),
     }),
 
     onSubmit: async (values) => {

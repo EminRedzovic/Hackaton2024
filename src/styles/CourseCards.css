@@ -1,21 +1,10 @@
-.card {
-  background: #22222e;
-  color: white;
+.cardd{
+    background-color: #22222e;
+    color: white;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-.card .title {
-  display: block; /* Po default-u prikazujemo naslov */
-}
-
-.card .description {
-  display: none; /* Po default-u ne prikazujemo opis kursa */
-}
-
-.card:hover .title {
-  display: none; /* Kada hoverujemo karticu, sakrijemo naslov */
-}
-
-.card:hover .description {
-  display: block;
-  
+.sidebar-open .CourseCards {
+  transform: translateX(250px); /* Pomerajte kartice u desno kada je bočna traka otvorena */
 }
