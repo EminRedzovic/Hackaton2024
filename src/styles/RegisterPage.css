@@ -1,3 +1,7 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .register-container {
   max-width: 400px;
   margin: 0 auto;
@@ -6,7 +10,11 @@
   border-radius: 5px;
   background-color: #f9f9f9;
 }
-
+.container {
+  background-color: rgb(218, 225, 222);
+  height: 100vh;
+  padding-top: 20px;
+}
 .form-group {
   margin-bottom: 20px;
 }

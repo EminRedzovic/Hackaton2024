@@ -5,12 +5,12 @@ import { Box, Button, IconButton, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import sajtLogo from "../../styles/sajtLogo.png";
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { auth, getUserData } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const NavigationCard = () => {
-  const mocked = ["Badge1", "Badge2", "Badge3", "Badge4", "Badge5", "Badge6"];
   const [isOpen, setIsOpen] = useState(true);
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -24,6 +24,7 @@ const NavigationCard = () => {
     setUser(result);
   };
   useEffect(() => {
+    console.log(user);
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         getUser(authUser.uid);
@@ -52,22 +53,35 @@ const NavigationCard = () => {
                 sx={{
                   letterSpacing: 4,
                   fontWeight: "bold",
-                  fontSize: 21,
+                  fontSize: 20,
+                  paddingLeft: 2,
                 }}
               >
                 EduConnect
               </Typography>
             </Box>
 
+            {user && (
+              <>
+                <Box className={`badges `}>
+                  <Typography>Badges : </Typography>
+                  <Box className="badges-container">
+                    <MilitaryTechIcon />
+                    <MilitaryTechIcon />
+                    <MilitaryTechIcon />
+                    <MilitaryTechIcon />
+                  </Box>
+                </Box>
+                <ul className={`navigation-items`}>
+                  <li>Kursevi</li>
+                  <li>Downloaded Lessons</li>
+                </ul>
+              </>
+            )}
             {user ? (
-              <Button
-                onClick={() => {
-                  logout();
-                }}
-                variant="outlined"
-              >
+              <button className="logoutButton" onClick={logout}>
                 Log out
-              </Button>
+              </button>
             ) : (
               <Typography
                 style={{
@@ -95,38 +109,21 @@ const NavigationCard = () => {
                 to use all features
               </Typography>
             )}
-            {user && (
-              <>
-                <Box className={`profile`}>
-                  <img src={mockedProfile} alt="Profile Picture" />
-                  <span>{user && user.displayName}</span>
-                </Box>
-                <Box className={`badges `}>
-                  <Typography>Bedzevi</Typography>
-                  <Box className="badges-container">
-                    {mocked.map((item) => {
-                      return (
-                        <Typography className="customText">{item}</Typography>
-                      );
-                    })}
-                  </Box>
-                </Box>
-                <ul className={`navigation-items`}>
-                  <li>Kursevi</li>
-                  <li>Downloaded Lessons</li>
-                  <li>None</li>
-                </ul>
-              </>
-            )}
           </Box>
         )}
         <IconButton className={`close-button`} onClick={toggleSidebar}>
           {isOpen ? (
             <ArrowBackIcon sx={{ color: "white", marginLeft: 1 }} />
           ) : (
-            <ArrowForwardIcon sx={{ color: "white", marginRight: -1 }} />
+            <ArrowForwardIcon sx={{ color: "white", marginLeft: -1 }} />
           )}
         </IconButton>
+        {user && isOpen && (
+          <Box className={`profile`}>
+            <img src={mockedProfile} alt="Profile Picture" />
+            <span>{user && user.displayName}</span>
+          </Box>
+        )}
       </Box>
     </>
   );

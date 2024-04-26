@@ -20,8 +20,12 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState();
   const [user, setUser] = useState();
   const handleSubmit = async (values) => {
-    await signInWithEmailAndPassword(auth, values.email, values.password);
-    navigate("/");
+    try {
+      await signInWithEmailAndPassword(auth, values.email, values.password);
+      navigate("/");
+    } catch (error) {
+      alert(error);
+    }
     console.log("Podaci:", values);
   };
   useEffect(() => {
@@ -35,75 +39,83 @@ const LoginPage = () => {
   }, [auth, isLoading]);
   if (!user) {
     return (
-      <div className="login-container">
-        <Box className={`logo`}>
-          <img src={sajtLogo} alt="Profile Picture" />
-          <Typography
-            sx={{
-              letterSpacing: 4,
-              fontWeight: "bold",
-              fontSize: 21,
+      <div className="container">
+        <div className="login-container">
+          <Box className={`logo`}>
+            <img src={sajtLogo} alt="Profile Picture" />
+            <Typography
+              sx={{
+                letterSpacing: 4,
+                fontWeight: "bold",
+                fontSize: 21,
+              }}
+            >
+              - EduConnect
+            </Typography>
+          </Box>
+          <center>
+            <h2>Sign In</h2>
+          </center>
+
+          <Formik
+            initialValues={{
+              username: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
             }}
+            validationSchema={LoginSchema}
+            onSubmit={handleSubmit}
           >
-            - EduConnect
-          </Typography>
-        </Box>
-        <center>
-          <h2>Sign In</h2>
-        </center>
+            {({ errors, touched }) => (
+              <Form>
+                <div className="form-group">
+                  <label htmlFor="email">Email</label>
+                  <Field
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="Enter ur E-mail"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error-message"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <Field
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    placeholder="Enter ur Password"
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error-message"
+                  />
+                </div>
 
-        <Formik
-          initialValues={{
-            username: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-          }}
-          validationSchema={LoginSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ errors, touched }) => (
-            <Form>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <Field type="email" name="email" className="form-control" />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="error-message"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Field
-                  type="password"
-                  name="password"
-                  className="form-control"
-                />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="error-message"
-                />
-              </div>
-
-              <center>
-                <button type="submit" className="btn btn-primary">
-                  Sign In
-                </button>{" "}
-                or{" "}
-                <span
-                  style={{ cursor: "pointer" }}
-                  onClick={() => {
-                    navigate("/registerPage");
-                  }}
-                >
-                  Register
-                </span>
-              </center>
-            </Form>
-          )}
-        </Formik>
+                <center>
+                  <button type="submit" className="btn btn-primary">
+                    Sign In
+                  </button>{" "}
+                  or{" "}
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      navigate("/registerPage");
+                    }}
+                  >
+                    Register
+                  </span>
+                </center>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
     );
   }
