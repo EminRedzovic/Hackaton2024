@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "../styles/HomeScreen.css";
-import mockedProfile from "../mockedData/profile.png";
+import "../../styles/HomeScreen.css";
+import mockedProfile from "../../mockedData/profile.png";
 import { Box, IconButton, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import NavigationCard from "../components/CourseCards/NavigationCard";
 
 const NavigationCard = () => {
   const mocked = ["Badge1", "Badge2", "Badge3", "Badge4", "Badge5", "Badge6"];
