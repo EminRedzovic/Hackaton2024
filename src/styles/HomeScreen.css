@@ -12,6 +12,11 @@
 .customText {
   color: "white";
 }
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .logo img {
   width: 30%;
   align-self: center;
@@ -64,6 +69,7 @@
   background-color: #22222e;
   color: #fff;
   overflow-x: hidden;
+
   transition: width 0.3s ease;
 }
 
