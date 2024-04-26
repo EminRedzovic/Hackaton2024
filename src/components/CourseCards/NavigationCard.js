@@ -46,7 +46,8 @@ const NavigationCard = () => {
           </Box>
           <ul className={`navigation-items ${isOpen ? "visible" : "hidden"}`}>
             <li>Kursevi</li>
-            <li>Downloaded Lessons</li>
+            <li>Downloaded Lessonsas</li>
+            <li>None</li>
           </ul>
         </Box>
       )}
