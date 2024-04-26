@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
 import LeaderboardPage from "./pages/LeaderboardPage";
+import ProfilePage from "./pages/profilePage";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/leaderboard" element={<LeaderboardPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/addcourse" element={<AddCourse />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/registerPage" element={<RegisterPage />} />
