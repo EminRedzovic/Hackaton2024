@@ -1,6 +1,3 @@
-// import React from "react";
-// import { Navigate } from "react-router-dom";
-
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -14,7 +11,6 @@ import "../styles/AddCourse.css";
 const AddCourse = () => {
   const token = localStorage.getItem("admin");
   const [imageUrls, setImageUrls] = useState([]);
-  const navigate = useNavigate();
   const [imageInput, setImageInput] = useState(null);
 
   useEffect(() => {
@@ -44,7 +40,7 @@ const AddCourse = () => {
       title: Yup.string().required("required"),
       description: Yup.string()
         .required("required")
-        .max(200, "max description lenght is 200"),
+        .max(100, "max description lenght is 200"),
     }),
 
     onSubmit: async (values) => {
