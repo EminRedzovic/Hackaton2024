@@ -8,6 +8,10 @@ body{
   justify-content: space-between;
 }
 
+.main-screen{
+  margin-left: 300px;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
