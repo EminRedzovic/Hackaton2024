@@ -5,8 +5,11 @@ import StepIndicator from "@mui/joy/StepIndicator";
 import mockedProfile from "../../mockedData/profile.png";
 import "./lessonPage.css";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
+import { useNavigate } from "react-router-dom";
 
-const lessonPage = () => {
+const LessonPage = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <NavigationCard />
@@ -165,10 +168,16 @@ const lessonPage = () => {
             <p style={{ paddingTop: "15px" }}>UAA njutn</p>
           </div>
         </div>
-        <button>Dalje</button>
+        <button
+          onClick={() => {
+            navigate("/questions");
+          }}
+        >
+          Dalje
+        </button>
       </div>
     </>
   );
 };
 
-export default lessonPage;
+export default LessonPage;
