@@ -41,7 +41,7 @@ const CourseCards = () => {
                 navigate("/course", { state: { course } });
               }}
             >
-              More
+              Vise
             </a>
           </div>
         </div>

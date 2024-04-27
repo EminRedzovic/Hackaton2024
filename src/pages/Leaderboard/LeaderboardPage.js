@@ -23,9 +23,9 @@ const LeaderboardPage = () => {
         </div>
         <div className="sections">
           <h1>Rank</h1>
-          <h1>Name</h1>
-          <h1>Finished Courses</h1>
-          <h1>Points</h1>
+          <h1>Ime</h1>
+          <h1>Zavrseni Kursevi</h1>
+          <h1>Poeni</h1>
         </div>
         <div className="student">
           <h3>1</h3>

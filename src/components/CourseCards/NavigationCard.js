@@ -44,6 +44,7 @@ const NavigationCard = () => {
   return (
     <>
       <Box className={"sidebar"}>
+
         {isLoading ? (
           <Box
             sx={{
@@ -54,7 +55,6 @@ const NavigationCard = () => {
             }}
           >
             <CircularProgress />
-          </Box>
         ) : (
           <Box>
             <Box className={`logo`}>
@@ -95,7 +95,27 @@ const NavigationCard = () => {
                     <img src={prvoMesto} width={"50px"} height={"50px"} />
                   </Box>
                 </Box>
-                <ul className={`navigation-items`}>
+
+              </Box>
+              <ul className={`navigation-items`}>
+                <li
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  <BookIcon />
+                  Kursevi
+                </li>
+                <li
+                  onClick={() => {
+                    navigate("/leaderboard");
+                  }}
+                >
+                  <LeaderboardIcon />
+                  Rang Lista
+                </li>
+                {user && user.isAdmin && (
+
                   <li
                     onClick={() => {
                       navigate("/");
@@ -104,6 +124,7 @@ const NavigationCard = () => {
                     <BookIcon />
                     Kursevi
                   </li>
+
                   <li
                     onClick={() => {
                       navigate("/leaderboard");
@@ -136,6 +157,54 @@ const NavigationCard = () => {
               </Box>
             )}
 
+                )}
+              </ul>
+            </>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          )}
+
+          {user && (
+            <Box
+              className={`profile`}
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              <img src={mockedProfile} alt="Profile Picture" />
+              <span className="profile-username">
+                {user && user.displayName}
+              </span>
+            </Box>
+          )}
+
+          {user ? (
+            <button className="sidebar-button logout-button" onClick={logout}>
+              Izloguj se
+            </button>
+          ) : (
+            <div>
+              <button
+                className="sidebar-button"
+                onClick={() => {
+                  navigate("/registerPage");
+                }}
+              >
+                Registruj se
+              </button>
+
+
             {user && (
               <Box
                 className={`profile`}
@@ -155,7 +224,7 @@ const NavigationCard = () => {
 
             {user ? (
               <button className="sidebar-button logout-button" onClick={logout}>
-                Log out
+                Odjavi se
               </button>
             ) : (
               <div>
