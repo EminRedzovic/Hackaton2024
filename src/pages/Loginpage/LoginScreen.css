@@ -11,10 +11,10 @@
   background-color: #f9f9f9;
   /* margin-top: 10px; */
 }
-.container {
-  background-color: rgb(218, 225, 222);
+.Logincontainer {
+  background-color: rgb(218, 225, 222) !important;
   height: 100vh;
-  padding-top: 20px;
+  padding-top: 5%;
 }
 .form-group {
   margin-bottom: 20px;

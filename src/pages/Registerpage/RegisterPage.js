@@ -62,7 +62,7 @@ const RegisterPage = () => {
   }, [auth, isLoading]);
   if (!user) {
     return (
-      <div className="container">
+      <div className="Registercontainer">
         <div className="register-container">
           <Box className={`logo`}>
             <img src={sajtLogo} alt="Profile Picture" />

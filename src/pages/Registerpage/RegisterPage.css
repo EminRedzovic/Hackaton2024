@@ -10,10 +10,11 @@
   border-radius: 5px;
   background-color: #f9f9f9;
 }
-.container {
-  background-color: rgb(218, 225, 222);
+.Registercontainer {
+  background-color: rgb(218, 225, 222) !important;
   height: 100vh;
   padding-left: 0px !important;
+  padding-top: 2%;
 }
 .form-group {
   /* margin-bottom: 20px; */

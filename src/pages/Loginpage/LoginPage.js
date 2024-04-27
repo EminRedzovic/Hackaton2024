@@ -39,7 +39,7 @@ const LoginPage = () => {
   }, [auth, isLoading]);
   if (!user) {
     return (
-      <div className="container">
+      <div className="Logincontainer">
         <div className="login-container">
           <Box className={`logo`}>
             <img src={sajtLogo} alt="Profile Picture" />
