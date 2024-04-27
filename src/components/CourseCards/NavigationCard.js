@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../../pages/HomePage/HomeScreen.css";
 import mockedProfile from "../../mockedData/profile.png";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import sajtLogo from "../../styles/sajtLogo.png";
-import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { auth, getUserData } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import BookIcon from "@mui/icons-material/Book";
+import LeaderboardIcon from "@mui/icons-material/Leaderboard";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const NavigationCard = () => {
   const [user, setUser] = useState();
@@ -40,7 +42,11 @@ const NavigationCard = () => {
       <Box className={"sidebar"}>
         <Box>
           <Box className={`logo`}>
-            <img src={sajtLogo} alt="Profile Picture" />
+            <img
+              src={sajtLogo}
+              alt="Profile Picture"
+              className="logo-sidebar"
+            />
             <Typography
               sx={{
                 letterSpacing: 4,
@@ -64,13 +70,13 @@ const NavigationCard = () => {
                 </Typography>
                 <Box className="badges-container">
                   {/* <MilitaryTechIcon sx={{ color: "gold", fontSize: "30px" }} />
-                  <MilitaryTechIcon
-                    sx={{ color: "silver", fontSize: "30px" }}
-                  />
-                  <MilitaryTechIcon
-                    sx={{ color: "bronze", fontSize: "30px" }}
-                  />
-                  <MilitaryTechIcon sx={{ color: "brown", fontSize: "30px" }} /> */}
+                    <MilitaryTechIcon
+                      sx={{ color: "silver", fontSize: "30px" }}
+                    />
+                    <MilitaryTechIcon
+                      sx={{ color: "bronze", fontSize: "30px" }}
+                    />
+                    <MilitaryTechIcon sx={{ color: "brown", fontSize: "30px" }} /> */}
                 </Box>
               </Box>
               <ul className={`navigation-items`}>
@@ -79,6 +85,7 @@ const NavigationCard = () => {
                     navigate("/");
                   }}
                 >
+                  <BookIcon />
                   Kursevi
                 </li>
                 <li
@@ -86,6 +93,7 @@ const NavigationCard = () => {
                     navigate("/leaderboard");
                   }}
                 >
+                  <LeaderboardIcon />
                   Leaderboard
                 </li>
                 {user && user.isAdmin && (
@@ -94,59 +102,57 @@ const NavigationCard = () => {
                       navigate("/addcourse");
                     }}
                   >
+                    <AddCircleOutlineIcon />
                     Dodaj kurs
                   </li>
                 )}
               </ul>
             </>
           )}
+
+          {user && (
+            <Box
+              className={`profile`}
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                navigate("/profile");
+              }}
+            >
+              <img src={mockedProfile} alt="Profile Picture" />
+              <span className="profile-username">
+                {user && user.displayName}
+              </span>
+            </Box>
+          )}
+
           {user ? (
-            <button className="logoutButton" onClick={logout}>
+            <button className="sidebar-button logout-button" onClick={logout}>
               Log out
             </button>
           ) : (
-            <Typography
-              style={{
-                marginTop: 20,
-                marginLeft: 10,
-              }}
-            >
-              <span
-                onClick={() => {
-                  navigate("/loginpage");
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                Login
-              </span>{" "}
-              or{" "}
-              <span
+            <div>
+              <button
+                className="sidebar-button"
                 onClick={() => {
                   navigate("/registerPage");
                 }}
-                style={{ cursor: "pointer" }}
               >
                 Register
-              </span>{" "}
-              to use all features
-            </Typography>
+              </button>
+
+              <button
+                className="sidebar-button login-button  "
+                onClick={() => {
+                  navigate("/loginpage");
+                }}
+              >
+                Login
+              </button>
+            </div>
           )}
         </Box>
-
-        {user && (
-          <Box
-            className={`profile`}
-            style={{
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              navigate("/profile");
-            }}
-          >
-            <img src={mockedProfile} alt="Profile Picture" />
-            <span>{user && user.displayName}</span>
-          </Box>
-        )}
       </Box>
     </>
   );

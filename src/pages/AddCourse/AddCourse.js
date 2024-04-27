@@ -133,8 +133,8 @@ const AddCourse = () => {
             color: "white",
           }}
         >
-          <Box className={`logo`} sx={{ marginBottom: 2 }}>
-            <img src={sajtLogo} alt="Profile Picture" />
+          <Box className={`logo-addcourse`} sx={{ marginBottom: 2 }}>
+            <img src={sajtLogo} className="logo2" alt="Profile Picture" />
             <Typography
               sx={{
                 letterSpacing: 4,
@@ -374,14 +374,12 @@ const AddCourse = () => {
                 variant="contained"
                 color="primary"
                 sx={{
-
                   backgroundColor: "#bc7c19",
                   "&:hover": {
                     backgroundColor: "#b27417",
                   },
 
                   marginBottom: 10,
-
                 }}
               >
                 Create
