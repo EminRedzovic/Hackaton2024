@@ -41,7 +41,7 @@ const CourseCards = () => {
                 navigate("/course", { state: { course } });
               }}
             >
-              Go somewhere
+              More
             </a>
           </div>
         </div>

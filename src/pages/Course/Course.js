@@ -10,27 +10,22 @@ const Course = () => {
     {
       Lekcija: "Lekcija1",
       Content: "Pobediti barcelonu 4-0 na campnou",
-      Difficiulty: "easy",
     },
     {
       Lekcija: "Lekcija2",
       Content: "Pobediti barcelonu 4-0 na campnou",
-      Difficiulty: "easy",
     },
     {
       Lekcija: "Lekcija3",
       Content: "Pobediti barcelonu 4-0 na campnou",
-      Difficiulty: "easy",
     },
     {
       Lekcija: "Lekcija4",
       Content: "Pobediti barcelonu 4-0 na campnou",
-      Difficiulty: "easy",
     },
     {
       Lekcija: "Lekcija5",
       Content: "Pobediti barcelonu 4-0 na campnou",
-      Difficiulty: "easy",
     },
   ];
   const [open, setOpen] = useState(false);
@@ -55,54 +50,50 @@ const Course = () => {
           <div className="container-footer">
             <p className="cardText">{item && item.description}</p>
           </div>
-          {mockedLekcija.map((item, index) => {
-            return (
-              <>
-                <div
-                  className="lekcija-container"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => {
-                    setOpen(index);
-                  }}
-                >
-                  <div style={{ display: "flex" }}>
-                    {open === index ? (
-                      <>
-                        <ArrowDropDownIcon />
-                      </>
-                    ) : (
-                      <ArrowDropUpIcon />
-                    )}
-                    <p
-                      style={{
-                        fontSize: 20,
-                      }}
-                    >
-                      {item && item.Lekcija}
-                    </p>
-                  </div>
-                  <div>
-                    <p>
-                      <span
+          {item &&
+            item.lesson.map((item, index) => {
+              return (
+                <>
+                  <div
+                    className="lekcija-container"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      setOpen(index);
+                    }}
+                  >
+                    <div style={{ display: "flex" }}>
+                      {open === index ? (
+                        <>
+                          <ArrowDropDownIcon sx={{ color: "white" }} />
+                        </>
+                      ) : (
+                        <ArrowDropUpIcon sx={{ color: "white" }} />
+                      )}
+                      <p
                         style={{
-                          color: "#34eb52",
+                          fontSize: 20,
+                          color: "white",
                         }}
                       >
-                        {item && item.Difficiulty}
-                      </span>
-                    </p>
+                        {item && item.title}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <Collapse
-                  in={open === index}
-                  style={{ color: "white", marginTop: 5 }}
-                  unmountOnExit
-                >
-                  {item && item.Content}
-                </Collapse>
-              </>
-            );
-          })}
+                  <Collapse
+                    in={open === index}
+                    style={{
+                      color: "white",
+                      // marginTop: 5,
+                      backgroundColor: " #36363d",
+                      padding: 20,
+                    }}
+                    unmountOnExit
+                  >
+                    {item && item.content}
+                  </Collapse>
+                </>
+              );
+            })}
         </div>
       </div>
     </>
