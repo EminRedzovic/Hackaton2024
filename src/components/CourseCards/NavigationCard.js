@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/HomeScreen.css";
+import "../../pages/HomePage/HomeScreen.css";
 import mockedProfile from "../../mockedData/profile.png";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
