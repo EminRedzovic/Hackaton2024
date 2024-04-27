@@ -13,7 +13,7 @@
 .container {
   background-color: rgb(218, 225, 222);
   height: 100vh;
-  /* padding-top: 20px; */
+  padding-left: 0px !important;
 }
 .form-group {
   /* margin-bottom: 20px; */

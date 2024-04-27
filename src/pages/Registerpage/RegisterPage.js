@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "../../src/styles/RegisterPage.css";
-import sajtLogo from "../../src/styles/sajtLogo.png";
+import "./RegisterPage.css";
+import sajtLogo from "../../../src/styles/sajtLogo.png";
 import { Box, CircularProgress, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, isUsernameAvailable, submitLoginData } from "../firebase";
+import { auth, isUsernameAvailable, submitLoginData } from "../../firebase";
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),

@@ -1,9 +1,9 @@
-import "../styles/profilePage.css";
-import NavigationCard from "../components/CourseCards/NavigationCard";
+import "./profilePage.css";
+import NavigationCard from "../../components/CourseCards/NavigationCard";
 import profile from "./profile.jpg";
 import medalja from "./medalja.svg";
 import { CiSettings } from "react-icons/ci";
-import { auth, editProfile, getUserData } from "../firebase";
+import { auth, editProfile, getUserData } from "../../firebase";
 import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 
