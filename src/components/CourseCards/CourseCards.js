@@ -4,8 +4,12 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { CardActionArea } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const CourseCards = ({ isSidebarOpen }) => {
+  const navigate = useNavigate();
+
   // Dodajte prop isSidebarOpen za praćenje stanja otvorenosti/zatvorenosti bočne trake
   const [courses, setCourses] = useState([]);
   const coursesCollections = collection(db, "courses");
@@ -32,6 +36,9 @@ const CourseCards = ({ isSidebarOpen }) => {
         {courses.map((course) => (
           <Grid item key={course.id} xs={12} sm={6} md={4}>
             <Card
+              onClick={() => {
+                navigate(`/course/${132424}`, { state: { item: course } });
+              }}
               sx={{
                 maxWidth: 300,
                 backgroundColor: "#22222e",
