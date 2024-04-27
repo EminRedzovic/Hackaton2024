@@ -2,22 +2,21 @@
   padding: 0;
   margin: 0;
 }
-.login-container {
+.register-container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  margin-top: 80px;
 }
 .container {
   background-color: rgb(218, 225, 222);
   height: 100vh;
-  padding-top: 20px;
+  padding-left: 0px !important;
 }
 .form-group {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 label {

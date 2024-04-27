@@ -1,13 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AddCourse from "./pages/AddCourse";
+import HomePage from "./pages/HomePage/HomePage";
+import AddCourse from "./pages/AddCourse/AddCourse";
 
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/Loginpage/LoginPage";
+import RegisterPage from "./pages/Registerpage/RegisterPage";
 
-import LeaderboardPage from "./pages/LeaderboardPage";
-import ProfilePage from "./pages/profilePage";
+import LeaderboardPage from "./pages/Leaderboard/LeaderboardPage";
+import ProfilePage from "./pages/ProfilePage/profilePage";
+import Course from "./pages/Course/Course";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/addcourse" element={<AddCourse />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/registerPage" element={<RegisterPage />} />
+        <Route path="/course/:data" element={<Course />} />
       </Routes>
     </BrowserRouter>
   );

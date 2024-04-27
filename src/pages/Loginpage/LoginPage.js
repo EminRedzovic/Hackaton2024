@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import sajtLogo from "../../src/styles/sajtLogo.png";
+import sajtLogo from "../../../src/styles/sajtLogo.png";
 import { Box, CircularProgress, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "../../src/styles/LoginScreen.css";
-import { auth } from "../firebase";
+import "./LoginScreen.css";
+import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const LoginSchema = Yup.object().shape({
