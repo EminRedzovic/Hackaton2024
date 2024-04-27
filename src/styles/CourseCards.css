@@ -1,5 +1,34 @@
-.cardd{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.courses {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.card img {
+  width: 350px;
+  height: 150px;
+}
+
+.card {
+  padding: 10px;
+  width: 350px;
+  height: 300px;
+  background-color: #22222e;
+  margin: 15px;
+  color: white;
+}
+
+.card p {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.card a {
+  background-color: #bc7c19;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background-color: #bc7c19;
 }

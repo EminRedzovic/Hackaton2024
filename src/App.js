@@ -20,7 +20,7 @@ function App() {
         <Route path="/addcourse" element={<AddCourse />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/registerPage" element={<RegisterPage />} />
-        <Route path="/course/:data" element={<Course />} />
+        <Route path="/course" element={<Course />} />
       </Routes>
     </BrowserRouter>
   );

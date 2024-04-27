@@ -7,7 +7,6 @@ import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-
 const CourseCards = () => {
   const navigate = useNavigate();
 
@@ -29,42 +28,25 @@ const CourseCards = () => {
   }, []);
 
   return (
-    <div>
-      <Grid container spacing={2} rowSpacing={2}>
-        {courses.map((course) => (
-          <Grid className="cardd" item key={course.id} xs={12} sm={6} md={4}>
-            <Card
-
-              className="cardd"
-
+    <div className="courses">
+      {courses.map((course) => (
+        <div class="card">
+          <img src={course.imageURL} class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h2 class="card-title">{course.title}</h2>
+            <p class="card-text">{course.description}</p>
+            <a
+              href="#"
+              class="btn btn-primary"
               onClick={() => {
-                navigate(`/course/${132424}`, { state: { item: course } });
-              }}
-
-              sx={{
-                width: 200,
-                backgroundColor: "#22222e",
-                color: "white",
+                navigate(`/course`, { state: { item: course } });
               }}
             >
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={course.imageURL}
-                  alt={course.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5">
-                    {course.title + " " + course.price + "$"}
-                  </Typography>
-                  <Typography variant="body2">{course.description}</Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+              Go somewhere
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
