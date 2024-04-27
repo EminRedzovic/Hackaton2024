@@ -9,7 +9,8 @@ body {
 }
 
 .main-screen{
-  margin-left: 300px; 
+  padding-top: 20px;
+  padding-left: 300px;
 }
 
 .sidebar {
@@ -61,9 +62,6 @@ body {
   border-radius: 50%;
   margin-right: 10px;
 }
-.badges-container {
-  /* display: flex; */
-}
 
 .badges {
   margin-left: 8px;
@@ -99,7 +97,10 @@ body {
   transition: width 0.3s ease;
 }
 
-.sidebar.closed {
+.sidebar.closed  {
+  width: 0;
+}
+.sidebar.closed  {
   width: 0;
 }
 

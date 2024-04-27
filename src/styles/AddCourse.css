@@ -6,3 +6,16 @@
 *{
     font-family: Nunito, sans-serif;
 }
+
+.main-add-course{
+    display: flex;
+    justify-content: center;
+}
+
+.main-add-course .form{
+    background-color: #22222f;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;    
+}
