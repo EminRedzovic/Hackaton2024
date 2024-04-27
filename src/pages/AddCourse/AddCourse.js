@@ -187,6 +187,9 @@ const AddCourse = () => {
                     : null
                 }
               />
+              {formik.errors.title && formik.touched.title && (
+                <Typography color="error">{formik.errors.title}</Typography>
+              )}
 
               <input
                 className="tf"
@@ -205,6 +208,11 @@ const AddCourse = () => {
                     : null
                 }
               />
+              {formik.errors.description && formik.touched.description && (
+                <Typography color="error">
+                  {formik.errors.description}
+                </Typography>
+              )}
 
               <input
                 className="tf"
@@ -222,12 +230,21 @@ const AddCourse = () => {
                     : null
                 }
               />
+              {formik.errors.price && formik.touched.price && (
+                <Typography color="error">{formik.errors.price}</Typography>
+              )}
 
               <Button
                 variant="contained"
                 color="primary"
                 className="lessons-button-add"
                 onClick={handleAddLesson}
+                sx={{
+                  backgroundColor: "#bc7c19",
+                  "&:hover": {
+                    backgroundColor: "#b27417",
+                  },
+                }}
               >
                 Add Lesson
               </Button>
@@ -289,6 +306,12 @@ const AddCourse = () => {
                 color="primary"
                 className="pitanja-button-add"
                 onClick={handleAddPitanja}
+                sx={{
+                  backgroundColor: "#bc7c19",
+                  "&:hover": {
+                    backgroundColor: "#b27417",
+                  },
+                }}
               >
                 Add Question
               </Button>
@@ -326,8 +349,6 @@ const AddCourse = () => {
                     onBlur={formik.handleBlur}
                     label={`Question ${index + 1} Content`}
                     placeholder="Enter question content"
-                    multiline
-                    rows={4}
                     error={
                       formik.errors.pitanja &&
                       formik.errors.pitanja[index] &&
@@ -353,7 +374,14 @@ const AddCourse = () => {
                 variant="contained"
                 color="primary"
                 sx={{
+
+                  backgroundColor: "#bc7c19",
+                  "&:hover": {
+                    backgroundColor: "#b27417",
+                  },
+
                   marginBottom: 10,
+
                 }}
               >
                 Create

@@ -20,7 +20,6 @@ const NavigationCard = () => {
     setUser(result);
   };
   useEffect(() => {
-    console.log(user);
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         getUser(authUser.uid);

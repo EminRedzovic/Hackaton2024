@@ -18,7 +18,7 @@
 }
 
 ::-webkit-file-upload-button{
-    background-color: #1976D2;
+    background-color: #bc7c19;
     color: white;
     height: 30px;
     border: none;
@@ -28,7 +28,7 @@
 }
 
 ::-webkit-file-upload-button:hover{
-    background-color: #1565C0;
+    background-color: #b27417;
 }
 
 .tf{
