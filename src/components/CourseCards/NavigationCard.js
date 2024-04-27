@@ -7,7 +7,7 @@ import osvojenoTakmicenje from "../../badges/osvojenoTakmicenje.svg";
 import prviKurs from "../../badges/prviKurs.svg";
 import prvoMesto from "../../badges/prvoMesto.svg";
 
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, CircularProgress } from "@mui/material";
 
 import sajtLogo from "../../styles/sajtLogo.png";
 import { auth, getUserData } from "../../firebase";
@@ -43,7 +43,6 @@ const NavigationCard = () => {
     auth.signOut();
     setUser();
   };
-
   return (
     <>
       <Box className={"sidebar"}>
@@ -66,7 +65,7 @@ const NavigationCard = () => {
             </Typography>
           </Box>
 
-          {user && (
+          {user ? (
             <>
               <Box className={`badges `}>
                 <Typography
@@ -76,7 +75,6 @@ const NavigationCard = () => {
                   Bedzevi
                 </Typography>
                 <Box className="badges-container">
-
                   <img src={cestKorisnik} width={"60px"} height={"60px"} />
                   <img
                     src={osvojenoTakmicenje}
@@ -85,7 +83,6 @@ const NavigationCard = () => {
                   />
                   <img src={prviKurs} width={"50px"} height={"50px"} />
                   <img src={prvoMesto} width={"50px"} height={"50px"} />
-
                 </Box>
               </Box>
               <ul className={`navigation-items`}>
@@ -117,6 +114,16 @@ const NavigationCard = () => {
                 )}
               </ul>
             </>
+          ) : (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <CircularProgress />
+            </Box>
           )}
 
           {user && (
