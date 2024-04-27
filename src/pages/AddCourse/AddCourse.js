@@ -3,19 +3,32 @@ import { useFormik } from "formik";
 import { Navigate, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { addDoc, collection } from "firebase/firestore";
-import { storage, db } from "../../firebase";
+import { storage, db, auth, getUserData } from "../../firebase";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
-import { Box, Typography, TextField, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import sajtLogo from "../../../src/styles/sajtLogo.png";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
 import "./AddCourse.css";
 
 const AddCourse = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState();
   const token = localStorage.getItem("admin");
   const [imageUrls, setImageUrls] = useState([]);
   const [imageInput, setImageInput] = useState(null);
-
+  const getUser = async (uid) => {
+    const result = await getUserData(uid);
+    setUser(result);
+  };
+  useEffect(() => {
+    console.log(user);
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        getUser(authUser.uid);
+      }
+    });
+    return () => unsubscribe();
+  }, [auth]);
   useEffect(() => {
     const importImg = () => {
       if (imageInput && imageInput[0]) {
@@ -69,10 +82,10 @@ const AddCourse = () => {
     validationSchema: Yup.object().shape({
       title: Yup.string()
         .required("required")
-        .max(15, "max title length is 15"),
+        .max(25, "max title length is 25"),
       description: Yup.string()
         .required("required")
-        .max(70, "max description length is 70"),
+        .max(125, "max description length is 125"),
       price: Yup.number().required("required"),
       lessons: Yup.array().required("required"),
       pitanja: Yup.array().required("required"),
@@ -88,12 +101,16 @@ const AddCourse = () => {
         lesson: values.lessons,
         pitanja: values.pitanja,
       };
-      await addDoc(collectionRef, data);
-      navigate("/");
+      try {
+        await addDoc(collectionRef, data);
+        navigate("/");
+      } catch (error) {
+        alert(error);
+      }
     },
   });
 
-  if (!(token === "msdos")) {
+  if (user && !user.isAdmin) {
     return <Navigate to={"/"} replace={true} />;
   }
 
@@ -357,10 +374,14 @@ const AddCourse = () => {
                 variant="contained"
                 color="primary"
                 sx={{
+
                   backgroundColor: "#bc7c19",
                   "&:hover": {
                     backgroundColor: "#b27417",
                   },
+
+                  marginBottom: 10,
+
                 }}
               >
                 Create
