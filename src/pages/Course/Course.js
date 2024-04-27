@@ -36,7 +36,7 @@ const Course = () => {
                   Zapocni
                 </button>
               ) : (
-                <button className="startButton">Kupi</button>
+                <button className="startButton">{item.price}$</button>
               )}
             </div>
           </div>
