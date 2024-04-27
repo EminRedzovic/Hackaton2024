@@ -5,13 +5,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 50%;
+  margin-left: 20%;
+  background-color: #22222e;
 }
 .container {
+  background-color: #00021f;
+
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  padding-left: 250px;
 }
 .card_image {
   height: 150px !important;
@@ -22,6 +26,7 @@
   font-size: 23px;
   font-weight: "bold";
   margin-left: 10px;
+  color: white;
 }
 .lekcija-container {
   display: flex;
@@ -39,6 +44,7 @@
   font-size: 19px;
   /* font-weight: "bold"; */
   margin-left: 10px;
+  color: white;
 }
 .container-header {
   display: flex;

@@ -36,10 +36,9 @@ const CourseCards = () => {
             <h2 class="card-title">{course.title}</h2>
             <p class="card-text">{course.description}</p>
             <a
-              href="#"
               class="btn btn-primary"
               onClick={() => {
-                navigate(`/course`, { state: { item: course } });
+                navigate("/course", { state: { course } });
               }}
             >
               Go somewhere

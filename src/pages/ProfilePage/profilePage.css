@@ -1,6 +1,7 @@
 .profile1 {
   max-width: 700px;
   margin: auto;
+  margin-left: 35%;
   height: 100% !important;
   background-color: #22222e;
   margin-top: 10%;
@@ -8,7 +9,6 @@
   border-top-left-radius: 20px;
   padding: 10px;
 }
-
 .profile1 .linija {
   height: 2px;
   background-color: white;
