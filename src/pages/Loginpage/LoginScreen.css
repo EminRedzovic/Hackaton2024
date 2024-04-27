@@ -6,13 +6,13 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9;
+  /* background-color: #2a2b39; */
   /* margin-top: 10px; */
+  color: white; 
 }
 .Logincontainer {
-  background-color: rgb(218, 225, 222) !important;
+  background-color: #2a2b39;
   height: 100vh;
   padding-top: 5%;
 }
@@ -50,7 +50,7 @@ label {
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #bc7c19;
 }
 
 .btn-primary:hover {
@@ -60,5 +60,8 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white !important;
+}
+
+.in{
+  background-color: transparent;
 }
