@@ -119,7 +119,15 @@ const NavigationCard = () => {
         </Box>
 
         {user && (
-          <Box className={`profile`}>
+          <Box
+            className={`profile`}
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              navigate("/profile");
+            }}
+          >
             <img src={mockedProfile} alt="Profile Picture" />
             <span>{user && user.displayName}</span>
           </Box>
