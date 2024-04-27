@@ -8,7 +8,7 @@ body {
   justify-content: space-between;
 }
 
-.main-screen{
+.main-screen {
   padding-top: 20px;
   padding-left: 300px;
 }
@@ -94,22 +94,8 @@ body {
   color: #fff;
   overflow-x: hidden;
   justify-content: space-between;
-  transition: width 0.3s ease;
-}
-
-.sidebar.closed  {
-  width: 0;
-}
-.sidebar.closed  {
-  width: 0;
-}
-
-.sidebar.closed .visible {
-  display: none;
-}
-
-.sidebar.open .hidden {
-  display: none;
+  transition: width 0.3s ease; /* Dodajte tranziciju za širinu */
+  z-index: 100; /* Postavite z-index da bude ispred glavnog sadržaja */
 }
 
 .close-button {
