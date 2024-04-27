@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { addDoc, collection } from "firebase/firestore";
 import { storage, db, auth, getUserData } from "../../firebase";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
-import { Box, Typography, TextField, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import sajtLogo from "../../../src/styles/sajtLogo.png";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
 import "./AddCourse.css";
@@ -82,10 +82,10 @@ const AddCourse = () => {
     validationSchema: Yup.object().shape({
       title: Yup.string()
         .required("required")
-        .max(15, "max title length is 15"),
+        .max(25, "max title length is 25"),
       description: Yup.string()
         .required("required")
-        .max(70, "max description length is 70"),
+        .max(125, "max description length is 125"),
       price: Yup.number().required("required"),
       lessons: Yup.array().required("required"),
       pitanja: Yup.array().required("required"),
@@ -101,8 +101,12 @@ const AddCourse = () => {
         lesson: values.lessons,
         pitanja: values.pitanja,
       };
-      await addDoc(collectionRef, data);
-      navigate("/");
+      try {
+        await addDoc(collectionRef, data);
+        navigate("/");
+      } catch (error) {
+        alert(error);
+      }
     },
   });
 
