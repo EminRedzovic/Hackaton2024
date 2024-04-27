@@ -4,9 +4,13 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { CardActionArea } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 const CourseCards = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const navigate = useNavigate();
+
   const [courses, setCourses] = useState([]);
   const coursesCollections = collection(db, "courses");
 
@@ -30,7 +34,13 @@ const CourseCards = () => {
         {courses.map((course) => (
           <Grid className="cardd" item key={course.id} xs={12} sm={6} md={4}>
             <Card
+
               className="cardd"
+
+              onClick={() => {
+                navigate(`/course/${132424}`, { state: { item: course } });
+              }}
+
               sx={{
                 width: 200,
                 backgroundColor: "#22222e",

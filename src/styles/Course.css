@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding-left: 250px;
+}
+.container-card {
+  border: 0.5px solid black;
+  border-radius: 10px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card_image {
+  height: 150px !important;
+  width: 250px !important;
+}
+.cardTittle {
+  letter-spacing: 3px;
+  font-size: 23px;
+  font-weight: "bold";
+  margin-left: 10px;
+}
+.lekcija-container {
+  display: flex;
+  /* justify-content: space-between; */
+  width: 90%;
+  justify-content: space-between;
+  background-color: white;
+  margin-top: 10px;
+}
+.lekcija-container p {
+  /* text-align: center; */
+}
+.cardText {
+  letter-spacing: 2px;
+  font-size: 19px;
+  /* font-weight: "bold"; */
+  margin-left: 10px;
+}
+.container-header {
+  display: flex;
+  flex-direction: row;
+}
+.container-footer {
+  margin-top: 30px;
+}
+.lekcija-container {
+  width: 100%;
+  background-color: rgb(191, 187, 187);
+}
