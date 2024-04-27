@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import { Navigate, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { addDoc, collection } from "firebase/firestore";
-import { storage, db } from "../../firebase";
+import { storage, db, auth, getUserData } from "../../firebase";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import sajtLogo from "../../../src/styles/sajtLogo.png";
@@ -12,10 +12,23 @@ import "./AddCourse.css";
 
 const AddCourse = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState();
   const token = localStorage.getItem("admin");
   const [imageUrls, setImageUrls] = useState([]);
   const [imageInput, setImageInput] = useState(null);
-
+  const getUser = async (uid) => {
+    const result = await getUserData(uid);
+    setUser(result);
+  };
+  useEffect(() => {
+    console.log(user);
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        getUser(authUser.uid);
+      }
+    });
+    return () => unsubscribe();
+  }, [auth]);
   useEffect(() => {
     const importImg = () => {
       if (imageInput && imageInput[0]) {
@@ -93,7 +106,7 @@ const AddCourse = () => {
     },
   });
 
-  if (!(token === "msdos")) {
+  if (user && !user.isAdmin) {
     return <Navigate to={"/"} replace={true} />;
   }
 
@@ -331,7 +344,14 @@ const AddCourse = () => {
                 </div>
               ))}
 
-              <Button type="submit" variant="contained" color="primary">
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                sx={{
+                  marginBottom: 10,
+                }}
+              >
                 Create
               </Button>
             </Box>

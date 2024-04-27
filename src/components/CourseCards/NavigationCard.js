@@ -82,6 +82,15 @@ const NavigationCard = () => {
                 >
                   Leaderboard
                 </li>
+                {user && user.isAdmin && (
+                  <li
+                    onClick={() => {
+                      navigate("/addcourse");
+                    }}
+                  >
+                    Dodaj kurs
+                  </li>
+                )}
               </ul>
             </>
           )}
