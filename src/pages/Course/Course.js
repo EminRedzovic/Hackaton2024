@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./Course.css";
 import { CardMedia, Collapse, IconButton, Typography } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -34,9 +34,9 @@ const Course = () => {
     },
   ];
   const [open, setOpen] = useState(false);
-  const [indexx, setIndexx] = useState();
   const location = useLocation();
-  const item = location.state.item;
+  const item = location.state && location.state.course;
+  console.log(item);
 
   return (
     <>
@@ -47,19 +47,20 @@ const Course = () => {
             <CardMedia
               component="img"
               className="card_image"
-              image={item.imageURL}
-              alt={item.title}
+              image={item && item.imageURL}
+              alt={item && item.title}
             />
-            <p className="cardTittle">{item.title}</p>
+            <p className="cardTittle">{item && item.title}</p>
           </div>
           <div className="container-footer">
-            <p className="cardText">{item.description}</p>
+            <p className="cardText">{item && item.description}</p>
           </div>
           {mockedLekcija.map((item, index) => {
             return (
               <>
                 <div
                   className="lekcija-container"
+                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     setOpen(index);
                   }}
@@ -72,7 +73,13 @@ const Course = () => {
                     ) : (
                       <ArrowDropUpIcon />
                     )}
-                    <p>{item.Lekcija}</p>
+                    <p
+                      style={{
+                        fontSize: 20,
+                      }}
+                    >
+                      {item && item.Lekcija}
+                    </p>
                   </div>
                   <div>
                     <p>
@@ -81,13 +88,17 @@ const Course = () => {
                           color: "#34eb52",
                         }}
                       >
-                        {item.Difficiulty}
+                        {item && item.Difficiulty}
                       </span>
                     </p>
                   </div>
                 </div>
-                <Collapse in={open === index} unmountOnExit>
-                  {item.Content}
+                <Collapse
+                  in={open === index}
+                  style={{ color: "white", marginTop: 5 }}
+                  unmountOnExit
+                >
+                  {item && item.Content}
                 </Collapse>
               </>
             );
