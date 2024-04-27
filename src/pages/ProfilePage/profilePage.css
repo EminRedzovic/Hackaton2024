@@ -9,7 +9,7 @@
   border-top-left-radius: 20px;
   padding: 10px;
 }
-.profile1 .linija {
+.linija {
   height: 2px;
   background-color: white;
 }
@@ -68,11 +68,6 @@
 
 .profile1 .other ul li {
   font-size: 25px;
-  padding: 10px;
-}
-
-.profile1 .other ul li:hover {
-  border-bottom: 1px solid white;
 }
 
 .profile1 .badges {

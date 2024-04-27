@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../../pages/HomePage/HomeScreen.css";
 import mockedProfile from "../../mockedData/profile.png";
+import cestKorisnik from "../../badges/5Dan.svg";
+import osvojenoTakmicenje from "../../badges/osvojenoTakmicenje.svg";
+import prviKurs from "../../badges/prviKurs.svg";
+import prvoMesto from "../../badges/prvoMesto.svg";
 import { Box, Typography } from "@mui/material";
 import sajtLogo from "../../styles/sajtLogo.png";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
@@ -60,17 +64,17 @@ const NavigationCard = () => {
                   className="badges-p"
                   sx={{ fontSize: "22px", fontWeight: "bold" }}
                 >
-                  Badges
+                  Bedzevi
                 </Typography>
                 <Box className="badges-container">
-                  {/* <MilitaryTechIcon sx={{ color: "gold", fontSize: "30px" }} />
-                  <MilitaryTechIcon
-                    sx={{ color: "silver", fontSize: "30px" }}
+                  <img src={cestKorisnik} width={"60px"} height={"60px"} />
+                  <img
+                    src={osvojenoTakmicenje}
+                    width={"50px"}
+                    height={"50px"}
                   />
-                  <MilitaryTechIcon
-                    sx={{ color: "bronze", fontSize: "30px" }}
-                  />
-                  <MilitaryTechIcon sx={{ color: "brown", fontSize: "30px" }} /> */}
+                  <img src={prviKurs} width={"50px"} height={"50px"} />
+                  <img src={prvoMesto} width={"50px"} height={"50px"} />
                 </Box>
               </Box>
               <ul className={`navigation-items`}>
