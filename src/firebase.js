@@ -2,9 +2,11 @@ import { initializeApp } from "firebase/app";
 import {
   addDoc,
   collection,
+  doc,
   getDocs,
   getFirestore,
   query,
+  setDoc,
   where,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -48,6 +50,24 @@ export const getUserData = async (id) => {
   }
 };
 
+export const editProfile = async (id, data) => {
+  try {
+    console.log(id, data);
+    const usersCollection = collection(db, "users");
+    const q = query(usersCollection, where("userId", "==", id));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      const userData = querySnapshot.docs[0].data();
+      const docRef = doc(db, "users", id);
+      await setDoc(docRef, data);
+      alert("Uspesno editovan profil");
+    } else {
+      throw new Error("Dokument korisnika nije pronađen");
+    }
+  } catch (error) {
+    alert(error);
+  }
+};
 export const isUsernameAvailable = async (name) => {
   try {
     const usersCollection = collection(db, "users");

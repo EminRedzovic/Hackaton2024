@@ -1,10 +1,16 @@
-.cardd{
-    background-color: #22222e;
-    color: white;
-    border-radius: 10px;
-    margin-top: 20px;
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.sidebar-open .CourseCards {
-  transform: translateX(250px); /* Pomerajte kartice u desno kada je bočna traka otvorena */
+.card {
+  width: 350px;
+  height: 200px;
+  margin: 15px;
+}
+
+.card img {
+  width: 350px;
+  height: 200px;
 }
