@@ -81,14 +81,14 @@ const AddCourse = () => {
 
     validationSchema: Yup.object().shape({
       title: Yup.string()
-        .required("required")
-        .max(25, "max title length is 25"),
+        .required("Obavezno polje")
+        .max(25, "Naslov mora imati manje od 25 karaktera"),
       description: Yup.string()
-        .required("required")
-        .max(125, "max description length is 125"),
-      price: Yup.number().required("required"),
-      lessons: Yup.array().required("required"),
-      pitanja: Yup.array().required("required"),
+        .required("Obavezno polje")
+        .max(125, "Opis mora imati manje od 125 karaktera"),
+      price: Yup.number().required("Obavezno polje"),
+      lessons: Yup.array().required("Obavezno polje"),
+      pitanja: Yup.array().required("Obavezno polje"),
     }),
 
     onSubmit: async (values) => {
@@ -179,7 +179,7 @@ const AddCourse = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 label="Name"
-                placeholder="Enter title of your course"
+                placeholder="Unesite naslov Vaseg kursa"
                 error={formik.errors.title && formik.touched.title}
                 helperText={
                   formik.errors.title && formik.touched.title
@@ -198,7 +198,7 @@ const AddCourse = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 label="Description"
-                placeholder="Enter description"
+                placeholder="Opis kursa"
                 multiline
                 rows={4}
                 error={formik.errors.description && formik.touched.description}
@@ -221,7 +221,7 @@ const AddCourse = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 type="number"
-                label="Price"
+                label="Cena"
                 placeholder="Enter Price"
                 error={formik.errors.price && formik.touched.price}
                 helperText={
@@ -246,7 +246,7 @@ const AddCourse = () => {
                   },
                 }}
               >
-                Add Lesson
+                Dodaj lekciju
               </Button>
 
               {formik.values.lessons.map((lesson, index) => (
@@ -258,7 +258,7 @@ const AddCourse = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     label={`Lesson ${index + 1} Title`}
-                    placeholder="Enter lesson title"
+                    placeholder="Unesite naslov lekcije"
                     error={
                       formik.errors.lessons &&
                       formik.errors.lessons[index] &&
@@ -281,7 +281,7 @@ const AddCourse = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     label={`Lesson ${index + 1} Content`}
-                    placeholder="Enter lesson content"
+                    placeholder="Unesite sadrzaj teksta"
                     multiline
                     rows={4}
                     error={
@@ -313,7 +313,7 @@ const AddCourse = () => {
                   },
                 }}
               >
-                Add Question
+                Dodaj pitanje
               </Button>
 
               {formik.values.pitanja.map((pitanje, index) => (
@@ -325,7 +325,7 @@ const AddCourse = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     label={`Question ${index + 1} Title`}
-                    placeholder="Enter question title"
+                    placeholder="Unesite pitanje"
                     error={
                       formik.errors.pitanja &&
                       formik.errors.pitanja[index] &&
@@ -348,7 +348,7 @@ const AddCourse = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     label={`Question ${index + 1} Content`}
-                    placeholder="Enter question content"
+                    placeholder="Unesite resenje"
                     error={
                       formik.errors.pitanja &&
                       formik.errors.pitanja[index] &&
@@ -382,7 +382,7 @@ const AddCourse = () => {
                   marginBottom: 10,
                 }}
               >
-                Create
+                Krejiraj
               </Button>
             </Box>
           </Box>

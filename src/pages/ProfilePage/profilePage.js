@@ -93,7 +93,7 @@ const ProfilePage = () => {
               </p>
             </div>
           </div>
-          <h2 className="about-me-h2">About me</h2>
+          <h2 className="about-me-h2">O Meni</h2>
           <div className="linija"></div>
           <div className="about-me">
             <p>
@@ -111,7 +111,7 @@ const ProfilePage = () => {
           </div>
           <div className="other">
             <ul>
-              <li className="badges-li">Badges</li>
+              <li className="badges-li">Bedzevi</li>
               <div className="linija"></div>
             </ul>
           </div>
@@ -153,7 +153,7 @@ const ProfilePage = () => {
         <p onClick={() => editProfile1()}>X</p>
         <img src={profile} />
         <input type="file" />
-        <label>First and Last Name</label>
+        <label>Ime i Prezime</label>
         <input
           type="text"
           placeholder="Daris Mavric"
@@ -162,7 +162,7 @@ const ProfilePage = () => {
             setFullname(e.target.value);
           }}
         />
-        <label>About me</label>
+        <label>O Meni</label>
         <textarea
           placeholder="Write something about you"
           value={aboutme}
@@ -171,7 +171,7 @@ const ProfilePage = () => {
           }}
         />
         <button style={{ cursor: "pointer" }} onClick={() => changeProfile()}>
-          Save
+          Sacuvaj
         </button>
       </div>
     </div>
