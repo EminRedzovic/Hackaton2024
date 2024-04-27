@@ -1,0 +1,51 @@
+.questions-section {
+  margin: auto;
+  width: 550px;
+}
+
+.questions-section h3 {
+  font-size: 25px;
+  margin-top: 10px;
+  color: white;
+}
+
+.questions-section h1 {
+  font-size: 40px;
+  margin-top: 20px;
+  color: white;
+}
+
+.questions-section .odgovor {
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  background-color: #22222e;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 35px;
+  text-align: center;
+  align-content: center;
+}
+
+.rang-lista {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 350px;
+  height: 250px;
+  background-color: #22222e;
+  float: right;
+}
+
+.rang-lista .ucesnik .ime {
+  width: 150px;
+}
+
+.rang-lista .ucesnik {
+  display: flex;
+  justify-content: space-around;
+  font-size: 25px;
+  color: white;
+  margin: 15px;
+}
