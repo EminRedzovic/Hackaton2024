@@ -41,8 +41,8 @@ const LoginPage = () => {
     return (
       <div className="Logincontainer">
         <div className="login-container">
-          <Box className={`logo`}>
-            <img src={sajtLogo} alt="Profile Picture" />
+          <Box className={`logo3`}>
+            <img src={sajtLogo} alt="Profile Picture" height={180} />
             <Typography
               sx={{
                 letterSpacing: 4,

@@ -64,8 +64,8 @@ const RegisterPage = () => {
     return (
       <div className="Registercontainer">
         <div className="register-container">
-          <Box className={`logo`}>
-            <img src={sajtLogo} alt="Profile Picture" />
+          <Box className={`logo1`}>
+            <img src={sajtLogo} alt="Profile Picture" height={180} />
             <Typography
               sx={{
                 letterSpacing: 4,
