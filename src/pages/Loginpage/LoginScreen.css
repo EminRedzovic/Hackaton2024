@@ -56,8 +56,9 @@ label {
 .btn-primary:hover {
   background-color: #0056b3;
 }
-.logo {
+.logo3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white !important;
 }

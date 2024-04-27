@@ -7,23 +7,25 @@ import osvojenoTakmicenje from "../../badges/osvojenoTakmicenje.svg";
 import prviKurs from "../../badges/prviKurs.svg";
 import prvoMesto from "../../badges/prvoMesto.svg";
 
-import { Box, Typography, Button, CircularProgress } from "@mui/material";
+import { Box, Typography, CircularProgress } from "@mui/material";
 
 import sajtLogo from "../../styles/sajtLogo.png";
 import { auth, getUserData } from "../../firebase";
 import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import BookIcon from "@mui/icons-material/Book";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const NavigationCard = () => {
   const [user, setUser] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const getUser = async (uid) => {
     const result = await getUserData(uid);
+    setIsLoading(false);
     setUser(result);
   };
   useEffect(() => {
@@ -31,23 +33,34 @@ const NavigationCard = () => {
       if (authUser) {
         getUser(authUser.uid);
       }
-
-      if (isLoading) {
+      setTimeout(() => {
         setIsLoading(false);
-      }
+      }, 1500);
     });
     return () => unsubscribe();
   }, [auth, isLoading]);
 
   const logout = () => {
-    auth.signOut();
+    signOut(auth);
     setUser();
   };
+
   return (
-    <>
-      <Box className={"sidebar"}>
-        <Box>
-          <Box className={`logo`}>
+    <div className="sidebar">
+      {isLoading ? (
+        <Box
+          sx={{
+            display: "flex",
+            height: "100vh",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      ) : (
+        <>
+          <Box className="logo">
             <img
               src={sajtLogo}
               alt="Profile Picture"
@@ -67,7 +80,7 @@ const NavigationCard = () => {
 
           {user ? (
             <>
-              <Box className={`badges `}>
+              <Box className="badges">
                 <Typography
                   className="badges-p"
                   sx={{ fontSize: "22px", fontWeight: "bold" }}
@@ -85,7 +98,8 @@ const NavigationCard = () => {
                   <img src={prvoMesto} width={"50px"} height={"50px"} />
                 </Box>
               </Box>
-              <ul className={`navigation-items`}>
+
+              <ul className="navigation-items">
                 <li
                   onClick={() => {
                     navigate("/");
@@ -100,17 +114,19 @@ const NavigationCard = () => {
                   }}
                 >
                   <LeaderboardIcon />
-                  Leaderboard
+                  Rang Lista
                 </li>
-                {user && user.isAdmin && (
-                  <li
-                    onClick={() => {
-                      navigate("/addcourse");
-                    }}
-                  >
-                    <AddCircleOutlineIcon />
-                    Dodaj kurs
-                  </li>
+                {user.isAdmin && (
+                  <>
+                    <li
+                      onClick={() => {
+                        navigate("/addcourse");
+                      }}
+                    >
+                      <AddCircleOutlineIcon />
+                      Dodaj kurs
+                    </li>
+                  </>
                 )}
               </ul>
             </>
@@ -121,14 +137,12 @@ const NavigationCard = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
-            >
-              <CircularProgress />
-            </Box>
+            ></Box>
           )}
 
           {user && (
             <Box
-              className={`profile`}
+              className="profile"
               style={{
                 cursor: "pointer",
               }}
@@ -137,15 +151,13 @@ const NavigationCard = () => {
               }}
             >
               <img src={mockedProfile} alt="Profile Picture" />
-              <span className="profile-username">
-                {user && user.displayName}
-              </span>
+              <span className="profile-username">{user.displayName}</span>
             </Box>
           )}
 
           {user ? (
             <button className="sidebar-button logout-button" onClick={logout}>
-              Log out
+              Izloguj se
             </button>
           ) : (
             <div>
@@ -155,11 +167,10 @@ const NavigationCard = () => {
                   navigate("/registerPage");
                 }}
               >
-                Register
+                Registruj se
               </button>
-
               <button
-                className="sidebar-button login-button  "
+                className="sidebar-button login-button"
                 onClick={() => {
                   navigate("/loginpage");
                 }}
@@ -168,9 +179,9 @@ const NavigationCard = () => {
               </button>
             </div>
           )}
-        </Box>
-      </Box>
-    </>
+        </>
+      )}
+    </div>
   );
 };
 
