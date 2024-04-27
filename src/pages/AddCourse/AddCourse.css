@@ -1,13 +1,10 @@
-@font-face {
-    font-family: Nunito;
-    src: url(../fonts/Nunito-VariableFont_wght.ttf);
-}
-
 *{
     font-family: Nunito, sans-serif;
 }
 
 .main-add-course{
+    background-color: #00021f;
+    height: 100vh;
     display: flex;
     justify-content: center;
 }
@@ -18,4 +15,26 @@
     color: white;
     border-radius: 10px;
     padding: 20px;    
+}
+
+::-webkit-file-upload-button{
+    background-color: #1976D2;
+    color: white;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+    cursor: pointer;
+}
+
+::-webkit-file-upload-button:hover{
+    background-color: #1565C0;
+}
+
+.tf{
+    background-color: transparent;
+    border: 1px solid grey;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
 }
