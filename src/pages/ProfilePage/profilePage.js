@@ -11,7 +11,7 @@ const ProfilePage = () => {
   const [user, setUser] = useState();
   const [fullname, setFullname] = useState();
   const [aboutme, setAboutme] = useState();
-  const [picture, setPicture] = useState();
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const ProfilePage = () => {
     try {
       await editProfile(user.userId, data);
       editProfile1();
-      setPicture("nesto");
+      setIsLoading(false);
     } catch (error) {
       alert(error);
     }
