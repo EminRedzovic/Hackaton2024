@@ -12,6 +12,7 @@ import Course from "./pages/Course/Course";
 
 import LessonPage from "./pages/Lesson/lessonPage.js";
 import QuestionPage from "./pages/Questions/questionPage.js";
+import CompetitionPage from "./pages/Competition/CompetitionPage.js";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/course" element={<Course />} />
         <Route path="/questions" element={<QuestionPage />} />
         <Route path="/lesson" element={<LessonPage />} />
+        <Route path="/competition" element={<CompetitionPage />} />
       </Routes>
     </BrowserRouter>
   );
