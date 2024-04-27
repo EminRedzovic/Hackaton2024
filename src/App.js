@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage";
 
 import LeaderboardPage from "./pages/LeaderboardPage";
 import ProfilePage from "./pages/profilePage";
+import Course from "./pages/Course";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/addcourse" element={<AddCourse />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/registerPage" element={<RegisterPage />} />
+        <Route path="/course/:data" element={<Course />} />
       </Routes>
     </BrowserRouter>
   );
