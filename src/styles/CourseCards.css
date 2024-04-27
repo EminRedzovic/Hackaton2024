@@ -1,5 +1,12 @@
-.cardd{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.cardd {
+  background-color: #22222e;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.sidebar-open .CourseCards {
+  transform: translateX(
+    250px
+  ); /* Pomerajte kartice u desno kada je bočna traka otvorena */
 }
