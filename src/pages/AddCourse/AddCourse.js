@@ -3,11 +3,11 @@ import { useFormik } from "formik";
 import { Navigate, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { addDoc, collection } from "firebase/firestore";
-import { storage, db } from "../firebase";
+import { storage, db } from "../../firebase";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
 import { Box, Typography, TextField, Button } from "@mui/material";
-import sajtLogo from "../../src/styles/sajtLogo.png";
-import NavigationCard from "../components/CourseCards/NavigationCard";
+import sajtLogo from "../../../src/styles/sajtLogo.png";
+import NavigationCard from "../../components/CourseCards/NavigationCard";
 
 const AddCourse = () => {
   const navigate = useNavigate();

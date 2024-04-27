@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import NavigationCard from "../components/CourseCards/NavigationCard";
+import NavigationCard from "../../components/CourseCards/NavigationCard";
 import { useLocation, useParams } from "react-router-dom";
-import "../../src/styles/Course.css";
+import "./Course.css";
 import { CardMedia, Collapse, IconButton, Typography } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";

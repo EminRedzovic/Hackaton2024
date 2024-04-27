@@ -1,5 +1,5 @@
-import NavigationCard from "../components/CourseCards/NavigationCard";
-import styles from "../styles/Leaderboard.css";
+import NavigationCard from "../../components/CourseCards/NavigationCard";
+import "./Leaderboard.css";
 
 const LeaderboardPage = () => {
   return (
