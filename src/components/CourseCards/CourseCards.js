@@ -7,10 +7,8 @@ import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-
-const CourseCards = () => {
-  const navigate = useNavigate();
-
+const CourseCards = ({ isSidebarOpen }) => {
+  // Dodajte prop isSidebarOpen za praćenje stanja otvorenosti/zatvorenosti bočne trake
   const [courses, setCourses] = useState([]);
   const coursesCollections = collection(db, "courses");
 
@@ -29,22 +27,20 @@ const CourseCards = () => {
   }, []);
 
   return (
-    <div>
-      <Grid container spacing={2} rowSpacing={2}>
+    <div className={`CourseCards ${isSidebarOpen ? "sidebar-open" : ""}`}>
+      {" "}
+      {/* Dodajte klasu sidebar-open ako je bočna traka otvorena */}
+      <Grid container spacing={2} rowSpacing={1}>
         {courses.map((course) => (
-          <Grid className="cardd" item key={course.id} xs={12} sm={6} md={4}>
+          <Grid item key={course.id} xs={12} sm={6} md={4}>
             <Card
-
-              className="cardd"
-
-              onClick={() => {
-                navigate(`/course/${132424}`, { state: { item: course } });
-              }}
-
               sx={{
-                width: 200,
+                maxWidth: 300,
                 backgroundColor: "#22222e",
                 color: "white",
+                marginTop: "20px",
+                transform: isSidebarOpen ? "translateX(250px)" : "none", // Primena transformacije na kartice ako je bočna traka otvorena
+                transition: "transform 0.3s ease-in-out", // Dodajte prelaz za glatko animiranje
               }}
             >
               <CardActionArea>
@@ -55,8 +51,8 @@ const CourseCards = () => {
                   alt={course.title}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5">
-                    {course.title + " " + course.price + "$"}
+                  <Typography gutterBottom variant="h5" component="div">
+                    {course.title}
                   </Typography>
                   <Typography variant="body2">{course.description}</Typography>
                 </CardContent>

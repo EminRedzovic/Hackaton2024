@@ -1,17 +1,13 @@
-import "./profilePage.css";
-import NavigationCard from "../../components/CourseCards/NavigationCard";
+import "../styles/profilePage.css";
+import NavigationCard from "../components/CourseCards/NavigationCard";
 import profile from "./profile.jpg";
 import medalja from "./medalja.svg";
 import { CiSettings } from "react-icons/ci";
-import { auth, editProfile, getUserData } from "../../firebase";
+import { auth, getUserData } from "../firebase";
 import { useState, useEffect } from "react";
-import { Typography } from "@mui/material";
 
 const ProfilePage = () => {
   const [user, setUser] = useState();
-  const [fullname, setFullname] = useState();
-  const [aboutme, setAboutme] = useState();
-  const [picture, setPicture] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -29,28 +25,10 @@ const ProfilePage = () => {
   }, [auth, isLoading]);
   const getUser = async (uid) => {
     const result = await getUserData(uid);
-    setFullname(result && result.displayName);
-    setAboutme(result && result.aboutme && result.aboutme);
     setUser(result);
   };
-  const changeProfile = async () => {
-    const data = {
-      badges: [],
-      displayName: fullname,
-      email: user.email,
-      isAdmin: false,
-      userId: user.userId,
-      aboutme: aboutme,
-    };
-    try {
-      await editProfile(user.userId, data);
-      editProfile1();
-      setPicture("nesto");
-    } catch (error) {
-      alert(error);
-    }
-  };
-  const editProfile1 = async () => {
+  const changeProfile = () => {};
+  const editProfile = () => {
     console.log(user.userId);
     let modal = document.querySelector(".editProfile");
     console.log(modal.style.display);
@@ -70,7 +48,7 @@ const ProfilePage = () => {
             <h1>{user && user.displayName}</h1>
             <CiSettings
               style={{ width: "40px", height: "40px", marginLeft: "10px" }}
-              onClick={() => editProfile1()}
+              onClick={() => editProfile()}
             />
           </div>
           <p>1028 Poena</p>
@@ -79,16 +57,11 @@ const ProfilePage = () => {
         <div className="linija"></div>
         <div className="about-me">
           <p>
-            {user && user.aboutme ? (
-              user.aboutme
-            ) : (
-              <Typography>About me</Typography>
-            )}
-            {/* Lorem Ipsum is simply dummy text of the printing and typesetting
+            Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic */}
+            only five centuries, but also the leap into electronic
           </p>
         </div>
         <div className="other">
@@ -119,29 +92,14 @@ const ProfilePage = () => {
         </div>
       </div>
       <div className="editProfile">
-        <p onClick={() => editProfile1()}>X</p>
+        <p onClick={() => editProfile()}>X</p>
         <img src={profile} />
         <input type="file" />
         <label>First and Last Name</label>
-        <input
-          type="text"
-          placeholder="Daris Mavric"
-          value={fullname}
-          onChange={(e) => {
-            setFullname(e.target.value);
-          }}
-        />
+        <input type="text" placeholder="Daris Mavric" />
         <label>About me</label>
-        <textarea
-          placeholder="Write something about you"
-          value={aboutme}
-          onChange={(e) => {
-            setAboutme(e.target.value);
-          }}
-        />
-        <button style={{ cursor: "pointer" }} onClick={() => changeProfile()}>
-          Save
-        </button>
+        <textarea placeholder="Write something about you" />
+        <button onClick={() => changeProfile()}>Save</button>
       </div>
     </div>
   );
