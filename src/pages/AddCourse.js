@@ -82,6 +82,7 @@ const AddCourse = () => {
             flexDirection: "column",
             alignItems: "center",
             padding: "20px",
+            color: "black",
           }}
         >
           <Box className={`logo`} sx={{ marginBottom: 2 }}>
@@ -100,13 +101,20 @@ const AddCourse = () => {
           <Box
             component="form"
             onSubmit={formik.handleSubmit}
-            sx={{ width: "100%", maxWidth: 400 }}
+            sx={{ width: "100%", maxWidth: 400, color: "black" }}
           >
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
+                color: "black",
+              }}
+            >
               <label
                 htmlFor="image"
                 className="file-upload"
-                style={{ color: "white" }}
+                style={{ color: "black" }}
               >
                 Choose image
               </label>
@@ -134,7 +142,6 @@ const AddCourse = () => {
                     ? formik.errors.title
                     : null
                 }
-                style={{ backgroundColor: "white" }}
               />
 
               <TextField
@@ -152,7 +159,6 @@ const AddCourse = () => {
                     ? formik.errors.description
                     : null
                 }
-                style={{ backgroundColor: "white" }}
               />
 
               <TextField
@@ -169,7 +175,6 @@ const AddCourse = () => {
                     ? formik.errors.price
                     : null
                 }
-                style={{ backgroundColor: "white" }}
               />
 
               <Button type="submit" variant="contained" color="primary">
