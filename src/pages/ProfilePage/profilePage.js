@@ -65,79 +65,88 @@ const ProfilePage = () => {
     }
   };
   return (
-    <div className="pre-section">
-      <NavigationCard />
+    <div className="about-page">
+      <div className="pre-section">
+        <NavigationCard />
+      </div>
+
       <div className="profile1">
-        <div className="about-me-section">
-          <div className="image-and-name">
-            <img src={profile} alt="asdasd" />
-            <h1>{user && user.displayName}</h1>
-            <CiSettings
-              style={{ width: "40px", height: "40px", marginLeft: "10px" }}
-              onClick={() => editProfile1()}
-            />
+        <div className="about-div">
+          <div className="about-me-section">
+            <div className="image-and-name">
+              <img src={profile} alt="asdasd" />
+              <h1>{user && user.displayName}</h1>
+              <CiSettings
+                style={{ width: "40px", height: "40px", marginLeft: "10px" }}
+                onClick={() => editProfile1()}
+              />
+            </div>
+            <div className="points-div">
+              <p>
+                1028
+                <GiGraduateCap
+                  style={{
+                    width: "30px",
+                    color: "#bc7c19",
+                  }}
+                />
+              </p>
+            </div>
           </div>
-          <p>
-            1028
-            <GiGraduateCap
-              style={{
-                width: "25px",
-                height: "25px",
-                color: "#bc7c19",
-              }}
-            />
-          </p>
-        </div>
-        <h2>About me</h2>
-        <div className="linija"></div>
-        <div className="about-me">
-          <p>
-            {user && user.aboutme ? (
-              user.aboutme
-            ) : (
-              <Typography>About me</Typography>
-            )}
-            {/* Lorem Ipsum is simply dummy text of the printing and typesetting
+          <h2 className="about-me-h2">About me</h2>
+          <div className="linija"></div>
+          <div className="about-me">
+            <p>
+              {user && user.aboutme ? (
+                user.aboutme
+              ) : (
+                <Typography>About me</Typography>
+              )}
+              {/* Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book. It has survived not
             only five centuries, but also the leap into electronic */}
-          </p>
-        </div>
-        <div className="other">
-          <ul>
-            <li>Badges</li>
-            <div className="linija"></div>
-          </ul>
-        </div>
-        <div className="badges">
-          <ul>
-            <li>
-              <img
-                src={cestKorisnik}
-                style={{ width: "150px", height: "120px" }}
-              />
-              <p>7 uzastopni dan ulazka na platformu</p>
-            </li>
-            <li>
-              <img
-                src={osvojenoTakmicenje}
-                style={{ width: "150px", height: "120px" }}
-              />
-              <p>Osvojeno Takmicenje</p>
-            </li>
-            <li>
-              <img src={prviKurs} style={{ width: "150px", height: "120px" }} />
-              <p>Prvi zapoceti kurs</p>
-            </li>
-            <li>
-              <img
-                src={prvoMesto}
-                style={{ width: "150px", height: "120px" }}
-              />
-              <p>Prvo mesto na rang listi</p>
-            </li>
-          </ul>
+            </p>
+          </div>
+          <div className="other">
+            <ul>
+              <li className="badges-li">Badges</li>
+              <div className="linija"></div>
+            </ul>
+          </div>
+          <div className="badges">
+            <ul>
+              <li>
+                <img
+                  src={cestKorisnik}
+                  style={{ width: "150px", height: "120px" }}
+                />
+                <p>7 uzastopni dan ulazka na platformu</p>
+              </li>
+              <li>
+                <img
+                  src={osvojenoTakmicenje}
+                  style={{ width: "150px", height: "120px" }}
+                />
+                <p>Osvojeno Takmicenje</p>
+              </li>
+              <li>
+                <img
+                  src={prviKurs}
+                  style={{ width: "150px", height: "120px" }}
+                />
+                <p>Prvi zapoceti kurs</p>
+              </li>
+              <li>
+                <img
+                  src={prvoMesto}
+                  style={{ width: "150px", height: "120px" }}
+                />
+                <p>Prvo mesto na rang listi</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div className="editProfile">

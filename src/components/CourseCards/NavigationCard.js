@@ -47,7 +47,7 @@ const NavigationCard = () => {
     <>
       <Box className={"sidebar"}>
         <Box>
-          <Box className={`logo`}>
+          <Box className={`logo`} onClick={() => navigate("/")}>
             <img
               src={sajtLogo}
               alt="Profile Picture"
