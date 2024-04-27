@@ -3,14 +3,15 @@
 }
 
 .main-add-course{
-    background-color: #00021f;
-    height: 100vh;
+    background-color: #232430;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
+    margin-left: 250px;
 }
 
 .main-add-course .form{
-    background-color: #22222f;
+    background-color: #232430;
     text-align: center;
     color: white;
     border-radius: 10px;
@@ -34,7 +35,19 @@
 .tf{
     background-color: transparent;
     border: 1px solid grey;
+    font-size: 18px;
     color: white;
     padding: 15px;
     border-radius: 10px;
+}
+
+.logo-addcourse{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo2{
+    width: 150px;
 }
