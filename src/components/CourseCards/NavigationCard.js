@@ -19,21 +19,18 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 const NavigationCard = () => {
   const [user, setUser] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const getUser = async (uid) => {
     const result = await getUserData(uid);
+    setIsLoading(false);
     setUser(result);
   };
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         getUser(authUser.uid);
-      }
-
-      if (isLoading) {
-        setIsLoading(false);
       }
     });
     return () => unsubscribe();
@@ -43,132 +40,146 @@ const NavigationCard = () => {
     auth.signOut();
     setUser();
   };
+
   return (
     <>
       <Box className={"sidebar"}>
-        <Box>
-          <Box className={`logo`}>
-            <img
-              src={sajtLogo}
-              alt="Profile Picture"
-              className="logo-sidebar"
-            />
-            <Typography
-              sx={{
-                letterSpacing: 4,
-                fontWeight: "bold",
-                fontSize: 20,
-                paddingLeft: 2,
-              }}
-            >
-              EduConnect
-            </Typography>
+        {isLoading ? (
+          <Box
+            sx={{
+              display: "flex",
+              height: "100vh",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CircularProgress />
           </Box>
+        ) : (
+          <Box>
+            <Box className={`logo`}>
+              <img
+                src={sajtLogo}
+                alt="Profile Picture"
+                className="logo-sidebar"
+              />
+              <Typography
+                sx={{
+                  letterSpacing: 4,
+                  fontWeight: "bold",
+                  fontSize: 20,
+                  paddingLeft: 2,
+                }}
+              >
+                EduConnect
+              </Typography>
+            </Box>
 
-          {user ? (
-            <>
-              <Box className={`badges `}>
-                <Typography
-                  className="badges-p"
-                  sx={{ fontSize: "22px", fontWeight: "bold" }}
-                >
-                  Bedzevi
-                </Typography>
-                <Box className="badges-container">
-                  <img src={cestKorisnik} width={"60px"} height={"60px"} />
-                  <img
-                    src={osvojenoTakmicenje}
-                    width={"50px"}
-                    height={"50px"}
-                  />
-                  <img src={prviKurs} width={"50px"} height={"50px"} />
-                  <img src={prvoMesto} width={"50px"} height={"50px"} />
+            {user ? (
+              <>
+                <Box className={`badges `}>
+                  <Typography
+                    className="badges-p"
+                    sx={{ fontSize: "22px", fontWeight: "bold" }}
+                  >
+                    Bedzevi
+                  </Typography>
+                  <Box className="badges-container">
+                    <img src={cestKorisnik} width={"60px"} height={"60px"} />
+                    <img
+                      src={osvojenoTakmicenje}
+                      width={"50px"}
+                      height={"50px"}
+                    />
+                    <img src={prviKurs} width={"50px"} height={"50px"} />
+                    <img src={prvoMesto} width={"50px"} height={"50px"} />
+                  </Box>
                 </Box>
-              </Box>
-              <ul className={`navigation-items`}>
-                <li
-                  onClick={() => {
-                    navigate("/");
-                  }}
-                >
-                  <BookIcon />
-                  Kursevi
-                </li>
-                <li
-                  onClick={() => {
-                    navigate("/leaderboard");
-                  }}
-                >
-                  <LeaderboardIcon />
-                  Leaderboard
-                </li>
-                {user && user.isAdmin && (
+                <ul className={`navigation-items`}>
                   <li
                     onClick={() => {
-                      navigate("/addcourse");
+                      navigate("/");
                     }}
                   >
-                    <AddCircleOutlineIcon />
-                    Dodaj kurs
+                    <BookIcon />
+                    Kursevi
                   </li>
-                )}
-              </ul>
-            </>
-          ) : (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <CircularProgress />
-            </Box>
-          )}
-
-          {user && (
-            <Box
-              className={`profile`}
-              style={{
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                navigate("/profile");
-              }}
-            >
-              <img src={mockedProfile} alt="Profile Picture" />
-              <span className="profile-username">
-                {user && user.displayName}
-              </span>
-            </Box>
-          )}
-
-          {user ? (
-            <button className="sidebar-button logout-button" onClick={logout}>
-              Log out
-            </button>
-          ) : (
-            <div>
-              <button
-                className="sidebar-button"
-                onClick={() => {
-                  navigate("/registerPage");
+                  <li
+                    onClick={() => {
+                      navigate("/leaderboard");
+                    }}
+                  >
+                    <LeaderboardIcon />
+                    Leaderboard
+                  </li>
+                  {user && user.isAdmin && (
+                    <li
+                      onClick={() => {
+                        navigate("/addcourse");
+                      }}
+                    >
+                      <AddCircleOutlineIcon />
+                      Dodaj kurs
+                    </li>
+                  )}
+                </ul>
+              </>
+            ) : (
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                Register
-              </button>
+                <p>U need to login or register first to use the features</p>
+              </Box>
+            )}
 
-              <button
-                className="sidebar-button login-button  "
+            {user && (
+              <Box
+                className={`profile`}
+                style={{
+                  cursor: "pointer",
+                }}
                 onClick={() => {
-                  navigate("/loginpage");
+                  navigate("/profile");
                 }}
               >
-                Login
+                <img src={mockedProfile} alt="Profile Picture" />
+                <span className="profile-username">
+                  {user && user.displayName}
+                </span>
+              </Box>
+            )}
+
+            {user ? (
+              <button className="sidebar-button logout-button" onClick={logout}>
+                Log out
               </button>
-            </div>
-          )}
-        </Box>
+            ) : (
+              <div>
+                <button
+                  className="sidebar-button"
+                  onClick={() => {
+                    navigate("/registerPage");
+                  }}
+                >
+                  Register
+                </button>
+
+                <button
+                  className="sidebar-button login-button  "
+                  onClick={() => {
+                    navigate("/loginpage");
+                  }}
+                >
+                  Login
+                </button>
+              </div>
+            )}
+          </Box>
+        )}
       </Box>
     </>
   );
