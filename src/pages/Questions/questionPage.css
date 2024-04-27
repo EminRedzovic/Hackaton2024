@@ -1,0 +1,36 @@
+.question {
+  color: white;
+  margin: auto;
+  width: 650px !important;
+}
+
+.stepper {
+  margin-top: 15px;
+}
+
+.question h1 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.question .dugme {
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+  background-color: #22222e;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.question button {
+  padding: 10px;
+  background-color: #bc7c19;
+  border: 0;
+  color: white;
+  font-size: 20px;
+  width: 100px;
+  height: 40px;
+  float: right;
+  margin-top: 20px;
+  cursor: pointer;
+}
