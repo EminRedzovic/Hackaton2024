@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../pages/HomePage/HomeScreen.css";
 import mockedProfile from "../../mockedData/profile.png";
-import { Box, Button, IconButton, Typography } from "@mui/material";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Box, Typography } from "@mui/material";
 import sajtLogo from "../../styles/sajtLogo.png";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { auth, getUserData } from "../../firebase";
@@ -58,12 +56,21 @@ const NavigationCard = () => {
           {user && (
             <>
               <Box className={`badges `}>
-                <Typography>Badges : </Typography>
+                <Typography
+                  className="badges-p"
+                  sx={{ fontSize: "22px", fontWeight: "bold" }}
+                >
+                  Badges
+                </Typography>
                 <Box className="badges-container">
-                  <MilitaryTechIcon />
-                  <MilitaryTechIcon />
-                  <MilitaryTechIcon />
-                  <MilitaryTechIcon />
+                  {/* <MilitaryTechIcon sx={{ color: "gold", fontSize: "30px" }} />
+                  <MilitaryTechIcon
+                    sx={{ color: "silver", fontSize: "30px" }}
+                  />
+                  <MilitaryTechIcon
+                    sx={{ color: "bronze", fontSize: "30px" }}
+                  />
+                  <MilitaryTechIcon sx={{ color: "brown", fontSize: "30px" }} /> */}
                 </Box>
               </Box>
               <ul className={`navigation-items`}>

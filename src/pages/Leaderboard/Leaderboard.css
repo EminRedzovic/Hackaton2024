@@ -14,24 +14,32 @@ body {
   align-items: flex-end;
   margin-bottom: 20px;
   text-align: center;
+  gap: 10px;
 }
 
 .silver {
   width: 333px;
   height: 200px;
-  background-color: gray;
+  background-image: linear-gradient(#c0c0c0, #747474);
+  background-color: #C0C0C0;
 }
 
 .gold {
   width: 333px;
   height: 230px;
-  background-color: yellow;
+  background-image: linear-gradient(#DAA520, #997415);
 }
 
 .bronze {
   width: 333px;
   height: 170px;
-  background-color: brown;
+  background-color: #CD7F32;
+  background-image: linear-gradient(#CD7F32, #8b5722);
+}
+
+.bronze, .silver, .gold{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .sections {
@@ -56,4 +64,23 @@ body {
 .student h3 {
   width: 250px;
   text-align: center;
+}
+
+.silver h1, .gold h1, .bronze h1{
+  margin-top: 20px;
+}
+
+.profile-picture{
+  width: 80px;
+  margin-top: 10px;
+  border-radius: 100px;
+}
+
+.silver, .gold, .bronze{
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.silver:hover, .gold:hover, .bronze:hover{
+  transform: translateY(-10px);
 }

@@ -1,4 +1,4 @@
-/* Navigation.css */
+  /* Navigation.css */
 body {
   background-color: #00021f;
 }
@@ -20,7 +20,6 @@ body {
   height: 100%;
   width: 200px;
   color: #fff;
-  padding: 20px;
   border-right: 0.5px solid black;
 }
 .customText {
@@ -41,6 +40,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #1b1b24;
+  padding: 20px;
 }
 .logo img {
   width: 30%;
@@ -60,14 +61,12 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 10px;
 }
 
 .badges {
-  margin-left: 8px;
   margin-top: 20px;
-
-  display: flex;
+  text-align: center;
+  cursor: default;
 }
 
 .badges img {
@@ -85,6 +84,12 @@ body {
 .navigation-items li {
   padding: 10px 10px;
   cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.navigation-items li:hover{
+  background-color: #1b1b24;
 }
 
 .sidebar {
