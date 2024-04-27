@@ -47,7 +47,7 @@ const NavigationCard = () => {
     <>
       <Box className={"sidebar"}>
         <Box>
-          <Box className={`logo`}>
+          <Box className={`logo`} onClick={() => navigate("/")}>
             <img
               src={sajtLogo}
               alt="Profile Picture"
@@ -100,7 +100,7 @@ const NavigationCard = () => {
                   }}
                 >
                   <LeaderboardIcon />
-                  Leaderboard
+                  Rang Lista
                 </li>
                 {user && user.isAdmin && (
                   <li
@@ -145,7 +145,7 @@ const NavigationCard = () => {
 
           {user ? (
             <button className="sidebar-button logout-button" onClick={logout}>
-              Log out
+              Izloguj se
             </button>
           ) : (
             <div>
@@ -155,7 +155,7 @@ const NavigationCard = () => {
                   navigate("/registerPage");
                 }}
               >
-                Register
+                Registruj se
               </button>
 
               <button
@@ -164,7 +164,7 @@ const NavigationCard = () => {
                   navigate("/loginpage");
                 }}
               >
-                Login
+                Prijavi se
               </button>
             </div>
           )}

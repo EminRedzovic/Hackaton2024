@@ -1,27 +1,27 @@
 .profile1 {
   max-width: 700px;
-  margin: auto;
-  margin-left: 35%;
-  height: 100% !important;
-  background-color: #22222e;
-  margin-top: 10%;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  padding: 10px;
+  margin-left: 250px;
 }
-.linija {
-  height: 2px;
-  background-color: white;
+
+.about-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+    background-color: #22222e;
+    border-radius: 20px;
+    margin-top: 100px;
 }
 
 .profile1 h2 {
-  margin-top: 20px;
   color: white;
 }
 
 .about-me-section {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
 }
 
 .about-me-section p {
@@ -53,7 +53,10 @@
 }
 
 .about-me {
+  margin-top: 20px;
   color: white;
+  font-size: 20px;
+  color: rgb(193, 193, 193);
 }
 
 .profile1 .other {
@@ -67,12 +70,16 @@
 }
 
 .profile1 .other ul li {
-  font-size: 25px;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .profile1 .badges {
+  margin: auto;
+  margin-top: 20px;
   height: 100%;
-  width: 700px;
+  width: 400px;
 }
 
 .profile1 .badges ul {
@@ -90,13 +97,13 @@
 }
 
 .editProfile {
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed; 
+  z-index: 1; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 550px;
-  height: 600px; /* Full height */
+  height: 600px;
   overflow: auto;
   background-color: black;
   color: white;
@@ -149,4 +156,14 @@
 .editProfile p {
   font-size: 20px;
   cursor: pointer;
+}
+
+.points-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-me-h2{
+  font-size: 40px;
 }
