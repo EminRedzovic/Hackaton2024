@@ -1,11 +1,12 @@
 import "./profilePage.css";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
-import profile from "./profile.jpg";
+import profile from "../../mockedData/profile.png";
 import medalja from "./medalja.svg";
 import { CiSettings } from "react-icons/ci";
 import { auth, editProfile, getUserData } from "../../firebase";
 import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
+import { GiGraduateCap } from "react-icons/gi";
 
 const ProfilePage = () => {
   const [user, setUser] = useState();
@@ -73,7 +74,16 @@ const ProfilePage = () => {
               onClick={() => editProfile1()}
             />
           </div>
-          <p>1028 Poena</p>
+          <p>
+            1028
+            <GiGraduateCap
+              style={{
+                width: "25px",
+                height: "25px",
+                color: "#bc7c19",
+              }}
+            />
+          </p>
         </div>
         <h2>About me</h2>
         <div className="linija"></div>
