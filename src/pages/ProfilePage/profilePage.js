@@ -1,7 +1,10 @@
 import "./profilePage.css";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
 import profile from "../../mockedData/profile.png";
-import medalja from "./medalja.svg";
+import cestKorisnik from "../../badges/5Dan.svg";
+import osvojenoTakmicenje from "../../badges/osvojenoTakmicenje.svg";
+import prviKurs from "../../badges/prviKurs.svg";
+import prvoMesto from "../../badges/prvoMesto.svg";
 import { CiSettings } from "react-icons/ci";
 import { auth, editProfile, getUserData } from "../../firebase";
 import { useState, useEffect } from "react";
@@ -104,26 +107,35 @@ const ProfilePage = () => {
         <div className="other">
           <ul>
             <li>Badges</li>
-            <li>Joined Courses</li>
+            <div className="linija"></div>
           </ul>
         </div>
         <div className="badges">
           <ul>
             <li>
-              <img src={medalja} style={{ width: "150px", height: "120px" }} />
-              <p>Prva pobeda na takmicenju</p>
+              <img
+                src={cestKorisnik}
+                style={{ width: "150px", height: "120px" }}
+              />
+              <p>7 uzastopni dan ulazka na platformu</p>
             </li>
             <li>
-              <img src={medalja} style={{ width: "150px", height: "120px" }} />
-              <p>10 predjenih kurseva</p>
+              <img
+                src={osvojenoTakmicenje}
+                style={{ width: "150px", height: "120px" }}
+              />
+              <p>Osvojeno Takmicenje</p>
             </li>
             <li>
-              <img src={medalja} style={{ width: "150px", height: "120px" }} />
-              <p>1000 predjenih poena</p>
+              <img src={prviKurs} style={{ width: "150px", height: "120px" }} />
+              <p>Prvi zapoceti kurs</p>
             </li>
             <li>
-              <img src={medalja} style={{ width: "150px", height: "120px" }} />
-              <p>Nzm sta je ovo</p>
+              <img
+                src={prvoMesto}
+                style={{ width: "150px", height: "120px" }}
+              />
+              <p>Prvo mesto na rang listi</p>
             </li>
           </ul>
         </div>
