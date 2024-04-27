@@ -1,35 +1,14 @@
 import React, { useState } from "react";
 import NavigationCard from "../../components/CourseCards/NavigationCard";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Course.css";
 import { CardMedia, Collapse, IconButton, Typography } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 const Course = () => {
-  const mockedLekcija = [
-    {
-      Lekcija: "Lekcija1",
-      Content: "Pobediti barcelonu 4-0 na campnou",
-    },
-    {
-      Lekcija: "Lekcija2",
-      Content: "Pobediti barcelonu 4-0 na campnou",
-    },
-    {
-      Lekcija: "Lekcija3",
-      Content: "Pobediti barcelonu 4-0 na campnou",
-    },
-    {
-      Lekcija: "Lekcija4",
-      Content: "Pobediti barcelonu 4-0 na campnou",
-    },
-    {
-      Lekcija: "Lekcija5",
-      Content: "Pobediti barcelonu 4-0 na campnou",
-    },
-  ];
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const item = location.state && location.state.course;
   console.log(item);
 
@@ -45,7 +24,21 @@ const Course = () => {
               image={item && item.imageURL}
               alt={item && item.title}
             />
-            <p className="cardTittle">{item && item.title}</p>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <p className="cardTittle">{item && item.title}</p>
+              {item.test ? (
+                <button
+                  className="startButton"
+                  onClick={() => {
+                    navigate("/lesson");
+                  }}
+                >
+                  Zapocni
+                </button>
+              ) : (
+                <button className="startButton">Kupi</button>
+              )}
+            </div>
           </div>
           <div className="container-footer">
             <p className="cardText">{item && item.description}</p>
